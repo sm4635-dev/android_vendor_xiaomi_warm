@@ -597,8 +597,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/warm/proprietary/vendor/etc/display/qdcm_calib_data_vtdr6130_amoled_cmd_mode_dsi_visionox_panel_with_DSC.json:$(TARGET_COPY_OUT_VENDOR)/etc/display/qdcm_calib_data_vtdr6130_amoled_cmd_mode_dsi_visionox_panel_with_DSC.json \
     vendor/xiaomi/warm/proprietary/vendor/etc/display/qdcm_calib_data_vtdr6130_amoled_video_mode_dsi_visionox_panel_with_DSC.json:$(TARGET_COPY_OUT_VENDOR)/etc/display/qdcm_calib_data_vtdr6130_amoled_video_mode_dsi_visionox_panel_with_DSC.json \
     vendor/xiaomi/warm/proprietary/vendor/etc/display/thermallevel_to_fps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/thermallevel_to_fps.xml \
-    vendor/xiaomi/warm/proprietary/vendor/etc/displayconfig/display_id_4630947039571902850.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947039571902850.xml \
-    vendor/xiaomi/warm/proprietary/vendor/etc/displayconfig/display_id_4630947039571902851.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947039571902851.xml \
     vendor/xiaomi/warm/proprietary/vendor/etc/dpm_vndr/vendor.dpm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dpm_vndr/vendor.dpm.conf \
     vendor/xiaomi/warm/proprietary/vendor/etc/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml \
     vendor/xiaomi/warm/proprietary/vendor/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
@@ -643,7 +641,10 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.diag.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.diag.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.alarm-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.alarm-service.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc \
+    vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.display.allocator-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.display.allocator-service.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.display.color-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.display.color-service.rc \
+    vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.display.composer-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.display.composer-service.rc \
+    vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.display.demura-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.display.demura-service.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.dsp@1.0-service.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.perf2-hal-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.perf2-hal-service.rc \
     vendor/xiaomi/warm/proprietary/vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc \
@@ -997,10 +998,12 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl-qti \
     android.hardware.bluetooth@1.1-impl-qti \
     android.hardware.gnss-aidl-impl-qti \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     audio.bluetooth_qti.default \
     audio.primary.pitti \
     camera.qcom \
     com.qti.chi.override \
+    gralloc.default \
     libEseUtils \
     libqtigatekeeper \
     sound_trigger.primary.pitti \
@@ -1064,7 +1067,9 @@ PRODUCT_PACKAGES += \
     libagmmixer \
     libaidenoiser \
     libaidenoiserv2 \
+    libanc_night \
     libanc_single_bokeh \
+    libanc_single_bokeh_rear \
     libanc_single_rt_bokeh \
     libar-acdb \
     libar-gpr \
@@ -1088,9 +1093,12 @@ PRODUCT_PACKAGES += \
     libcacertclient \
     libcalculator \
     libcalculator_htp \
+    libcamera_nn_stub \
     libcamera_scene \
     libcamerapostproc \
     libcamxexternalformatutils \
+    libcamxfacialfeatures \
+    libcamxfdalgo \
     libcamxfdengine \
     libcamxifestriping \
     libcamximageformatutils \
@@ -1134,6 +1142,7 @@ PRODUCT_PACKAGES += \
     libdisplayqos \
     libdisplayskuutils \
     libdpmqmihal \
+    libdpp_manager \
     libdpps \
     libdrmfs \
     libdrmtime \
@@ -1146,18 +1155,24 @@ PRODUCT_PACKAGES += \
     libengineplugin \
     libesesbprovision \
     libfeutils \
+    libfilefinder \
     libgame_enhance \
     libgdtap \
     libgeofencing \
+    libgf_ca \
     libgf_hal \
     libgnss \
     libgnsspps \
     libgps.utils \
     libgpt \
+    libgpu_tonemapper \
     libgralloc.qti \
+    libgralloccore \
+    libgrallocutils \
     libgsl \
     libhdcpsrm \
     libhdr_backlight_adapter \
+    libhdr_stub \
     libhdr_tm \
     libhistogram \
     libhotword_intf \
@@ -1234,6 +1249,8 @@ PRODUCT_PACKAGES += \
     libmmosal_vendor \
     libmmrtpdecoder_vendor \
     libmmrtpencoder_vendor \
+    libmorpho_HdrChecker \
+    libmorpho_ImageRefiner \
     libmpbase \
     libnicm \
     libnicm_dsi \
@@ -1245,6 +1262,8 @@ PRODUCT_PACKAGES += \
     libnicm_utils \
     libnicm_vh \
     liboemcrypto \
+    libofflinedump \
+    libofflinelog \
     libopencv \
     libopestriping \
     libops \
@@ -1328,7 +1347,9 @@ PRODUCT_PACKAGES += \
     libqms \
     libqms_client \
     libqrtr \
+    libqrtrclient \
     libqseed3 \
+    libqservice \
     libqsh \
     libqsocket \
     libqspm-mem-utils-vendor \
@@ -1357,6 +1378,7 @@ PRODUCT_PACKAGES += \
     libsdmextension \
     libsdmutils \
     libsdsprpc \
+    libseclog \
     libsensorcal \
     libsensorslog \
     libshsc \
@@ -1389,6 +1411,7 @@ PRODUCT_PACKAGES += \
     libtensorflowlite_c \
     libtestutils \
     libtfestriping \
+    libtflite_fd \
     libthermalclient \
     libthreadutils \
     libtime_genoff \
@@ -1599,6 +1622,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.latency@2.2 \
     vendor.qti.latencyaidlservice-V1-ndk \
     vendor.qti.memory.pasrmanager-V1-ndk \
+    vendor.qti.memory.pasrmanager@1.0 \
+    vendor.qti.memory.pasrmanager@1.1 \
     vendor.qti.qccvndhal_aidl-V1-ndk_vendor \
     vendor.qti.qccvndhal_aidl-halimpl \
     vendor.qti.qesdhal@1.0 \
@@ -1650,6 +1675,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.imsrtpservice@3.0 \
     vendor.qti.imsrtpservice@3.1 \
     vendor.qti.qccvndhal_aidl-V1-ndk \
+    vendor.qti.qesdhalaidl-V2-ndk \
     vendor.xiaomi.hardware.display.mihwcextension-V1-ndk \
     vendor.xiaomi.hardware.quickcamera-V1-ndk \
     displayfeature.default \
@@ -1714,6 +1740,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.ims.rcsuceaidlservice-V1-java \
     ImsRtpService-aidl.xml \
     android.hardware.gnss-aidl-service-qti.xml \
+    android.hardware.graphics.mapper-impl-qti-display.xml \
     android.hardware.radio.config.xml \
     android.hardware.radio.data.xml \
     android.hardware.radio.messaging.xml \
@@ -1743,6 +1770,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.alarm.xml \
     vendor.qti.hardware.data.connectionaidl.xml \
     vendor.qti.hardware.data.iwlandata.xml \
+    vendor.qti.hardware.display.allocator-service.xml \
+    vendor.qti.hardware.display.composer-service_warm.xml \
+    vendor.qti.hardware.display.demura-service.xml \
     vendor.qti.hardware.perf2.xml \
     vendor.qti.hardware.qconfig-service.xml \
     vendor.qti.hardware.qseecom@1.0-service.xml \
@@ -1783,8 +1813,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.camera.provider-service_64 \
     vendor.qti.hardware.alarm-service \
     vendor.qti.hardware.capabilityconfigstore@1.0-service \
+    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.color-service \
     vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.demura-service \
     vendor.qti.hardware.perf2-hal-service \
     vendor.qti.hardware.qseecom@1.0-service \
     vendor.qti.hardware.sensorscalibrate-service \
@@ -1835,7 +1867,6 @@ PRODUCT_PACKAGES += \
     tftp_server \
     time_daemon \
     tlpd \
-    ubwcconvert \
     vendor.dpmd \
     vendor.qti.hardware.soter-provision \
     vendor.qti.qspmhal-service \
